@@ -1,0 +1,18 @@
+# my global config
+global:
+  scrape_interval:     15s
+  evaluation_interval: 30s
+  # scrape_timeout is set to the global default (10s).
+
+scrape_configs:
+
+- job_name: prometheus
+  honor_labels: true
+  static_configs:
+  - targets: ['localhost:9090']
+
+- job_name: transaction_service
+  honor_labels: true
+  scrape_interval: 10s
+  static_configs:
+    - targets: ['transaction_service']
